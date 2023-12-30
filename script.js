@@ -62,7 +62,3 @@ function moveButtonRandomly() {
         noButton.classList.remove('move-animation');
     }, 1000);
 }
-
-function buttonClick(button) {
-    alert(button + " clicked!");
-}
