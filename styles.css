@@ -1,0 +1,36 @@
+body {
+    margin: 0; /* Loại bỏ margin mặc định của body */
+    overflow: hidden; /* Ngăn chặn hiển thị scroll bar khi ảnh nền toàn màn hình */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.button {
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#yesButton {
+    background-color: #FF9999; /* Màu xanh lá cây cho nút Yes */
+}
+
+#noButton {
+    background-color: #66CCFF; /* Màu đỏ cho nút No */
+}
+
+.swap-animation {
+    transition: transform 0.2s;
+}
+
+.move-animation {
+    transition: transform 0.2s ease-out;
+}
