@@ -17,7 +17,7 @@ function swapButtons() {
     yesButton.classList.add('swap-animation');
     noButton.classList.add('swap-animation');
 
-    yesButton.style.transform = 'translateX(' + (yesButtonRect.width + 20) + 'px)';
+    yesButton.style.transform = 'translateX(' + (yesButtonRect.width + 13) + 'px)';
     noButton.style.transform = 'translateX(-' + (yesButtonRect.width + 20) + 'px)';
 
     setTimeout(function () {
