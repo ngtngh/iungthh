@@ -27,6 +27,9 @@ function swapButtons() {
         yesButton.classList.remove('swap-animation');
         noButton.classList.remove('swap-animation');
     }, 500);
+
+    var audio = new Audio("sound/duck.mp3");
+    audio.play();
 }
 
 function moveButtonRandomly() {
@@ -61,4 +64,7 @@ function moveButtonRandomly() {
     setTimeout(function () {
         noButton.classList.remove('move-animation');
     }, 1000);
+
+    var audio = new Audio("sound/swish.mp3");
+    audio.play();
 }
