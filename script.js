@@ -13,12 +13,13 @@ function swapButtons() {
     var yesButton = document.getElementById('yesButton');
     var noButton = document.getElementById('noButton');
     var yesButtonRect = yesButton.getBoundingClientRect();
+    var noButtonRect = noButton.getBoundingClientRect();
 
     yesButton.classList.add('swap-animation');
     noButton.classList.add('swap-animation');
 
-    yesButton.style.transform = 'translateX(' + (yesButtonRect.width + 13) + 'px)';
-    noButton.style.transform = 'translateX(-' + (yesButtonRect.width + 20) + 'px)';
+    yesButton.style.transform = 'translateX(' + (noButtonRect.width + 60) + 'px)';
+    noButton.style.transform = 'translateX(-' + (yesButtonRect.width + 60) + 'px)';
 
     setTimeout(function () {
         yesButton.parentNode.insertBefore(noButton, yesButton);
@@ -45,7 +46,7 @@ function moveButtonRandomly() {
     var newX, newY;
     do {
         newX = Math.floor(Math.random() * (containerWidth/2 - noButton.offsetWidth));
-        newY = Math.floor(Math.random() * (containerHeight/2 - noButton.offsetHeight));
+        newY = Math.floor(Math.random() * (containerHeight - noButton.offsetHeight));
     } while (newX === currentX && newY === currentY);
 
     noButton.classList.add('move-animation');
