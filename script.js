@@ -122,7 +122,7 @@ function sendMessage() {
     });
 
     // Xóa nội dung khung nhập
-    // document.getElementById("loveMessage").value = "";
+    document.getElementById("loveMessage").value = "";
 
     closePopup();
 }
