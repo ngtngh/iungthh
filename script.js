@@ -1,6 +1,23 @@
+// Hiển thị popup khi trang web được tải
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById("welcomePopup").style.display = "block";
+});
+
+// Đóng pop-up "He luu"
+function closeWelcomePopup() {
+    document.getElementById("welcomePopup").style.display = "none";
+    // Hiển thị tiêu đề và nút "Yes", "No"
+    document.getElementById("header").style.display = "block";
+    document.getElementById("header2").style.display = "block";
+    document.getElementById("yesButton").style.display = "block";
+    document.getElementById("noButton").style.display = "block";
+    var audio = new Audio("sound/first-date.mp3");
+    audio.play();
+}
+
 var isInitialSwap = true;
 
-function handleMouseOver() {
+function moveNoButton() {
     if (isInitialSwap) {
         swapButtons();
         isInitialSwap = false;
@@ -18,8 +35,8 @@ function swapButtons() {
     yesButton.classList.add('swap-animation');
     noButton.classList.add('swap-animation');
 
-    yesButton.style.transform = 'translateX(' + (noButtonRect.width + 60) + 'px)';
-    noButton.style.transform = 'translateX(-' + (yesButtonRect.width + 60) + 'px)';
+    yesButton.style.transform = 'translateX(' + (noButtonRect.width + 50) + 'px)';
+    noButton.style.transform = 'translateX(-' + (yesButtonRect.width + 50) + 'px)';
 
     setTimeout(function () {
         yesButton.parentNode.insertBefore(noButton, yesButton);
@@ -68,4 +85,44 @@ function moveButtonRandomly() {
 
     var audio = new Audio("sound/swish.mp3");
     audio.play();
+}
+function showPopup() {
+    document.getElementById("popup").style.display = "block";
+    var audio = new Audio("sound/tink.mp3");
+    audio.play();
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+document.getElementById("loveMessage").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+});
+
+function sendMessage() {
+    var answer = document.getElementById("loveMessage").value;
+
+    // Gửi dữ liệu lên server
+    fetch('https://formspree.io/f/moqgqjew', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ answer: answer }),
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
+    // Xóa nội dung khung nhập
+    // document.getElementById("loveMessage").value = "";
+
+    closePopup();
 }

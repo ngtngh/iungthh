@@ -5,20 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Swap and Move Buttons</title>
+    <title>Yêu cậu 💙</title>
 </head>
 <body>
     <!-- Phần nền với ảnh nền -->
     <div class="background-container">
         <img src="img/puung3.jpg" alt="Background Image" class="background-image">
     </div>
-    <div class="container">
-        <h1 id="header" class="hidden">Cậu yêu tớ có phải không nào?</h1>
-        <h2 id="header2" class="hidden">Nếu cậu không trả lời mà thoát ra thì tớ khum chơi với cậu nữa ;-;</h2>
+    <!-- Pop-up "He luu" -->
+    <div id="welcomePopup" class="popup">
+        <div class="popup-content">
+            <img src="img/cuteCat.jpg" width="300" height="300" alt="Custom Image">
+            <h3>He luu cậu!</h3>
+            <p>Tớ có điều này muốn hỏi cậu nhớ phải trả lời thật lòng nhaaa.</p>
+            <button id="okButton" onclick="closeWelcomePopup()">OK</button>
+        </div>
     </div>
-    <div class="button-container">
-        <button id="yesButton" class="button">Yêu ơi là yêu ^^</button>
-        <button id="noButton" class="button" onclick="handleMouseOver()">Cậu mơ à???</button>
+    <div class="content">
+        <div class="container">
+            <h1 id="header" class="hidden">Cậu yêu tớ có phải không nào?</h1>
+            <h2 id="header2" class="hidden">Nếu cậu không trả lời mà thoát ra thì tớ khum chơi với cậu nữa ;-;</h2>
+        </div>
+        <div class="button-container">
+            <button id="yesButton" class="hidden" onclick="showPopup()">Yêu ơi là yêuuu ^^</button>
+            <button id="noButton" class="hidden" onclick="moveNoButton()">Cậu mơ à???</button>
+        </div>
+    </div>
+    <!-- Pop-up lời nhắn -->
+    <div id="popup" class="popup">
+        <div class="popup-content2">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h3>Yêu cậu nhìu nhìu 😗</h3>
+            <p>Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?</p>
+            <textarea id="loveMessage" class="messageInput" placeholder="Enter your message" rows="4" cols="60"></textarea>
+            <br>
+            <button id="sendButton" onclick="sendMessage()">Gửi cho tớ 🫶</button>
+            <!-- <button onclick="closePopup()">Cancel</button> -->
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
