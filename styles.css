@@ -6,8 +6,14 @@ body {
     margin: 0; /* Loại bỏ margin mặc định của body */
     overflow: hidden; /* Ngăn chặn hiển thị scroll bar khi ảnh nền toàn màn hình */
 }
-.hidden {
-    display: none;
+.swal2-title, .swal2-content{
+  color: azure !important;
+}
+.swal2-popup {
+  border-radius: 15px !important;
+}
+.swal2-actions {
+    margin-top: 10px;
 }
 .background-container {
     position: fixed;
@@ -36,14 +42,14 @@ body {
     position: relative; /* Cần thiết để có thể đặt z-index cao hơn */
     z-index: 0;
 }
-h1 {
+#header {
     font-family: "Pacifico";
     font-size: 76px;
     font-weight: normal;
     color: white;
     text-shadow: 3px 3px 3px black;
 }
-h2 {
+#header2 {
     font-family: "Pacifico";
     font-size: 28px;
     font-weight: normal;
@@ -87,73 +93,24 @@ button {
     transition: transform 0.1s ease-out;
 }
 
-#catImg {
-    width: 300px;
-    height: 300px;
-}
-
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-}
-
-.popup-content {
-    position: absolute;
-    width: 400px;
-    top: 50%;
-    left: 50%;
-    border-radius: 15px;
-    background-image: url("img/iput-bg.jpg");
-    transform: translate(-50%, -50%);
-/*    background-color: #fff;*/
-    padding: 20px;
-    text-align: center;
-}
-.popup-content2 {
-    position: absolute;
-    width: 600px;
-    top: 50%;
-    left: 50%;
-    border-radius: 15px;
-    background-image: url("img/iput-bg.jpg");
-    transform: translate(-50%, -50%);
-/*    background-color: #fff;*/
-    padding: 20px;
-    text-align: center;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 25px;
-    cursor: pointer;
-}
-
 .messageInput {
     font-family: Segoe UI;
     padding: 10px;
-    margin-bottom: 20px;
-    width: 550px;
-    /* height: 40px; */
-    font-size: 20px;
+    /*margin-bottom: 20px;*/
+    width: 800px;
+    /*height: 100px;*/
+    font-size: 18px;
     transition: width 0.5s;
 }
 
 @media only screen and (max-width: 500px) {
-    h1 {
+    #header {
         font-size: 50px;
         font-weight: normal;
         color: white;
         text-shadow: 3px 3px 3px black;
     }
-    h2 {
+    #header2 {
         font-size: 20px;
         font-weight: normal;
         color: white;
@@ -171,41 +128,13 @@ button {
         margin: 25px;
     }
 
-    #catImg {
-        width: 250px;
-        height: 250px;
-    }
-    .popup-content {
-        position: absolute;
-        width: 300px;
-        top: 50%;
-        left: 50%;
-        border-radius: 15px;
-        background-image: url("img/iput-bg.jpg");
-        transform: translate(-50%, -50%);
-        /*background-color: #fff;*/
-        padding: 20px;
-        text-align: center;
-    }
-    .popup-content2 {
-        position: absolute;
-        width: 350px;
-        top: 50%;
-        left: 50%;
-        border-radius: 15px;
-        background-image: url("img/iput-bg.jpg");
-        transform: translate(-50%, -50%);
-        /* background-color: #fff;*/
-        padding: 20px;
-        text-align: center;
-    }
     .messageInput {
         font-family: Segoe UI;
         padding: 10px;
-        margin-bottom: 20px;
+        /*margin-bottom: 20px;*/
         width: 300px;
-        /* height: 40px; */
-        font-size: 20px;
+        /*height: 40px;*/
+        font-size: 14px;
         transition: width 0.5s;
     }
 }

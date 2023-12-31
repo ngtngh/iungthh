@@ -1,18 +1,31 @@
-// Hiển thị popup khi trang web được tải
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById("welcomePopup").style.display = "block";
-});
+setTimeout(function () {
+    firstQuestion();
+    $(".spinner").fadeOut();
+    $("#preloader").delay(350).fadeOut("slow");
+    $("body").delay(350).css({
+      overflow: "visible",
+    });
+  }, 700);
 
-// Đóng pop-up "He luu"
-function closeWelcomePopup() {
-    document.getElementById("welcomePopup").style.display = "none";
-    // Hiển thị tiêu đề và nút "Yes", "No"
-    document.getElementById("header").style.display = "block";
-    document.getElementById("header2").style.display = "block";
-    document.getElementById("yesButton").style.display = "block";
-    document.getElementById("noButton").style.display = "block";
-    var audio = new Audio("sound/first-date.mp3");
-    audio.play();
+function firstQuestion() {
+    $(".content").hide();
+    Swal.fire({
+        title: "He luu cậu!",
+        text: "Tớ có một điều này muốn hỏi nhỏ, cậu nhớ phải trả lời thật lòng nhaaa.",
+        color: "#fff",
+        imageUrl: "img/cuteCat.jpg",
+        imageWidth: 300,
+        imageHeight: 300,
+        background: '#fff url("img/iput-bg.jpg")',
+        imageAlt: "Custom image",
+        confirmButtonText: "Ogee ^^",
+        confirmButtonColor: "#3085d6",
+    }).then(function () {
+        $(".content").show(200);
+        var audio = new Audio("sound/first-date.mp3");
+        audio.volume = 0.2;
+        audio.play();
+    });
 }
 
 var isInitialSwap = true;
@@ -86,21 +99,56 @@ function moveButtonRandomly() {
     var audio = new Audio("sound/swish.mp3");
     audio.play();
 }
+
 function showPopup() {
-    document.getElementById("popup").style.display = "block";
     var audio = new Audio("sound/tink.mp3");
     audio.play();
-}
 
-function closePopup() {
-    document.getElementById("popup").style.display = "none";
-}
-
-document.getElementById("loveMessage").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
+    Swal.fire({
+        // title: "Yêu cậu nhìu nhìu 😗",
+        text: "👉👈 Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?",
+        color: "#fff",
+        html: true,
+        width: 900,
+        // padding: "3em",
+        html: "<p>👉👈 Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?</p><textarea id='loveMessage' class='messageInput' placeholder='Gửi tâm tư của cậu vào đây nhaa...' rows='4' cols='60' style='resize: none;'>",
+        background: '#fff url("img/iput-bg.jpg")',
+        backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("img/giphy2.gif")
+                    left top
+                    no-repeat
+                  `,
+        showCancelButton: false,
+        confirmButtonColor: "#3085d6",
+        // cancelButtonColor: "#d33",
+        // confirmButtonColor: "#fe8a71",
+        // cancelButtonColor: "#f6cd61",
+        confirmButtonText: "Gửi cho tớ 🫶",
+    }).then((result) => {
         sendMessage();
-    }
-});
+        if (result.value) {
+        Swal.fire({
+            title: "Yêu cậu nhìu nhìu 😗",
+            text: "Mai kia tớ lại đón cậu đi chơi nhaa ^^ Còn giờ thì nhắn tin cảm động các thứ với tui đi nhee 🫶",
+            color: "#fff",
+            width: 900,
+            confirmButtonText: "Okii lunn 💙",
+            background: '#fff url("img/iput-bg.jpg")',
+            confirmButtonColor: "#3085d6",
+            // confirmButtonColor: "#83d0c9",
+        }).then(function () {
+            window.open("https://www.facebook.com/messages/t/100011379441769", "_self");
+        });
+        }
+    });
+}
+
+// document.getElementById("loveMessage").addEventListener("keydown", function(event) {
+//     if (event.key === "Enter") {
+//         sendMessage();
+//     }
+// });
 
 function sendMessage() {
     var answer = document.getElementById("loveMessage").value;
@@ -123,6 +171,4 @@ function sendMessage() {
 
     // Xóa nội dung khung nhập
     document.getElementById("loveMessage").value = "";
-
-    closePopup();
 }
