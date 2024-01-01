@@ -114,9 +114,9 @@ function showPopup() {
         html: "<p>👉👈 Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?</p><textarea id='loveMessage' class='messageInput' placeholder='Gửi tâm tư của cậu vào đây nhaa...' rows='4' cols='60' style='resize: none;'>",
         background: '#fff url("img/iput-bg.jpg")',
         backdrop: `
-                    rgba(0,0,123,0.4)
+                    rgba(0,0,0,0.45)
                     url("img/giphy2.gif")
-                    left top
+                    bottom
                     no-repeat
                   `,
         showCancelButton: false,
@@ -130,15 +130,26 @@ function showPopup() {
         if (result.value) {
         Swal.fire({
             title: "Yêu cậu nhìu nhìu 😗",
-            text: "Mai kia tớ lại đón cậu đi chơi nhaa ^^ Còn giờ thì nhắn tin cảm động các thứ với tui đi nhee 🫶",
+            text: "🎉 Chúc mừng sinh nhật bạn nhỏ của tớ nha 🎂\nMai kia tớ lại đón cậu đi chơi nhớ ^^ Còn giờ thì nhắn tin cảm động các thứ với tui đi nhee 🫶",
             color: "#fff",
-            width: 900,
-            confirmButtonText: "Okii lunn 💙",
+            imageUrl: "img/ntn&nth1.jpg",
+            imageWidth: 600,
+            imageAlt: "Custom image",
+            // width: 900,
             background: '#fff url("img/iput-bg.jpg")',
+            confirmButtonText: "Okii lunn 💙",
             confirmButtonColor: "#3085d6",
             // confirmButtonColor: "#83d0c9",
         }).then(function () {
-            window.open("https://www.facebook.com/messages/t/100011379441769", "_self");
+            var facebookPageID = 'ngtngh.04';
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                // Mở ứng dụng Messenger nếu đã cài đặt, hoặc mở trình duyệt di động
+                window.location.href = 'fb-messenger://user-thread/' + facebookPageID;
+            } else {
+                // Nếu không phải là điện thoại di động, sử dụng liên kết thông thường
+                window.open('https://m.me/' + facebookPageID, '_self');
+            }
+            // window.open("https://www.facebook.com/messages/t/100011379441769", "_self");
         });
         }
     });
