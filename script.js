@@ -111,7 +111,7 @@ function showPopup() {
         html: true,
         width: 900,
         // padding: "3em",
-        html: "<p>👉👈 Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?</p><textarea id='loveMessage' class='messageInput' placeholder='Gửi tâm tư của cậu vào đây nhaa...' rows='4' cols='60' style='resize: none;'>",
+        html: "<p>👉👈 Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?</p><textarea id='loveMessage' class='messageInput' placeholder='Gửi tâm tư của cậu vào đây nhaa...' rows='4' cols='40' style='resize: none;'>",
         background: '#fff url("img/iput-bg.jpg")',
         backdrop: `
                     rgba(0,0,0,0.45)
