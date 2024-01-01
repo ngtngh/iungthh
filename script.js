@@ -116,7 +116,7 @@ function showPopup() {
         backdrop: `
                     rgba(0,0,0,0.45)
                     url("img/giphy2.gif")
-                    bottom
+                    top right
                     no-repeat
                   `,
         showCancelButton: false,
@@ -130,26 +130,19 @@ function showPopup() {
         if (result.value) {
         Swal.fire({
             title: "Yêu cậu nhìu nhìu 😗",
-            text: "🎉 Chúc mừng sinh nhật bạn nhỏ của tớ nha 🎂\nMai kia tớ lại đón cậu đi chơi nhớ ^^ Còn giờ thì nhắn tin cảm động các thứ với tui đi nhee 🫶",
+            text: "🎉 Chúc mừng sinh nhật bạn nhỏ của tớ nha 🎂 Mai kia tớ lại đón cậu đi chơi nhớ ^^ Còn giờ thì nhắn tin cảm động các thứ với tui đi nhee 🫶",
             color: "#fff",
             imageUrl: "img/ntn&nth1.jpg",
-            imageWidth: 600,
+            imageWidth: 475,
             imageAlt: "Custom image",
             // width: 900,
             background: '#fff url("img/iput-bg.jpg")',
             confirmButtonText: "Okii lunn 💙",
-            confirmButtonColor: "#3085d6",
+            confirmButtonColor: "#fe8a71",
             // confirmButtonColor: "#83d0c9",
         }).then(function () {
             var facebookPageID = 'ngtngh.04';
             window.open('https://m.me/' + facebookPageID, '_self');
-            // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            //     // Mở ứng dụng Messenger nếu đã cài đặt, hoặc mở trình duyệt di động
-            //     window.location.href = 'fb-messenger://user-thread/' + facebookPageID;
-            // } else {
-            //     // Nếu không phải là điện thoại di động, sử dụng liên kết thông thường
-            //     window.open('https://m.me/' + facebookPageID, '_self');
-            // }
         });
         }
     });

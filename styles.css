@@ -7,14 +7,14 @@ body {
     overflow: hidden; /* Ngăn chặn hiển thị scroll bar khi ảnh nền toàn màn hình */
 }
 .swal2-shown > [aria-hidden='true'] {
-  transition: 0.1s filter;
-  filter: blur(4px);
+    transition: 0.2s filter;
+    filter: blur(4px);
 }
 .swal2-title, .swal2-content{
-  color: azure !important;
+    color: azure !important;
 }
 .swal2-popup {
-  border-radius: 15px !important;
+    border-radius: 15px !important;
 }
 .swal2-actions {
     margin-top: 10px;
@@ -69,6 +69,7 @@ body {
 }
 
 button {
+    font-family: Arial;
     box-shadow: 2px 2px 2px black;
     border: none;
     border-radius: 5px;
@@ -80,12 +81,14 @@ button {
 }
 
 #yesButton {
+    font-weight: bold;
     background-color: #FF9999; /* Màu đỏ nhạt cho nút Yes */
     font-size: 20px;
     margin: 25px;
 }
 
 #noButton {
+    font-weight: bold;
     background-color: #66CCFF; /* Màu xanh da trời cho nút No */
     font-size: 20px;
     margin: 25px;
