@@ -142,14 +142,14 @@ function showPopup() {
             // confirmButtonColor: "#83d0c9",
         }).then(function () {
             var facebookPageID = 'ngtngh.04';
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                // Mở ứng dụng Messenger nếu đã cài đặt, hoặc mở trình duyệt di động
-                window.location.href = 'fb-messenger://user-thread/' + facebookPageID;
-            } else {
-                // Nếu không phải là điện thoại di động, sử dụng liên kết thông thường
-                window.open('https://m.me/' + facebookPageID, '_self');
-            }
-            // window.open("https://www.facebook.com/messages/t/100011379441769", "_self");
+            window.open('https://m.me/' + facebookPageID, '_self');
+            // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            //     // Mở ứng dụng Messenger nếu đã cài đặt, hoặc mở trình duyệt di động
+            //     window.location.href = 'fb-messenger://user-thread/' + facebookPageID;
+            // } else {
+            //     // Nếu không phải là điện thoại di động, sử dụng liên kết thông thường
+            //     window.open('https://m.me/' + facebookPageID, '_self');
+            // }
         });
         }
     });
