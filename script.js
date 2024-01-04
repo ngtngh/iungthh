@@ -1,5 +1,6 @@
 setTimeout(function () {
-    firstQuestion();
+    $(".content").hide();
+    enterPassword();
     $(".spinner").fadeOut();
     $("#preloader").delay(350).fadeOut("slow");
     $("body").delay(350).css({
@@ -7,11 +8,37 @@ setTimeout(function () {
     });
   }, 700);
 
+function enterPassword() {
+    Swal.fire({
+        title: "Nhập mật khẩu trái tim ❤️",
+        html: "<input type='password' id='password' class='passwordInput' placeholder='Mật khẩu'>",
+        background: '#fff url("img/iput-bg.jpg")',
+        confirmButtonText: "Xác nhận",
+        confirmButtonColor: "#3085d6",
+    }).then(function () {
+        var password = document.getElementById("password").value;
+        if (password=="561344") {
+            firstQuestion();
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Mật khẩu chưa chính xác",
+                text: "Vui lòng nhập lại",
+                color: "#fff",
+                background: '#fff url("img/iput-bg.jpg")',
+                confirmButtonText: "Nhập lại",
+                confirmButtonColor: "#3085d6",             
+            }).then(function () {
+                enterPassword();
+            })
+        }
+    })
+}
+
 function firstQuestion() {
-    $(".content").hide();
     Swal.fire({
         title: "He luu cậu!",
-        text: "Tớ có một điều này muốn hỏi nhỏ, cậu nhớ phải trả lời thật lòng nhaaa.",
+        text: "Không biết \"bức thư\" của tớ có làm cậu cảm động không nhỉ? Hi vọng đó sẽ là một điều ý nghĩa tuyệt vời cho sinh nhật tuổi 20 của cậu 🙆‍♂️ Và tớ có một điều này muốn hỏi nhỏ, cậu nhớ phải trả lời thật lòng nhaaa.",
         color: "#fff",
         imageUrl: "img/cuteCat.jpg",
         imageWidth: 300,
@@ -108,7 +135,7 @@ function showPopup() {
         // title: "Yêu cậu nhìu nhìu 😗",
         text: "👉👈 Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?",
         color: "#fff",
-        html: true,
+        // html: true,
         width: 900,
         // padding: "3em",
         html: "<p>👉👈 Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?</p><textarea id='loveMessage' class='messageInput' placeholder='Gửi tâm tư của cậu vào đây nhaa...' rows='4' cols='40' style='resize: none;'>",
@@ -130,7 +157,7 @@ function showPopup() {
         if (result.value) {
         Swal.fire({
             title: "Yêu cậu nhìu nhìu 😗",
-            text: "🎉 Chúc mừng sinh nhật bạn nhỏ của tớ nha 🎂 Mai kia tớ lại đón cậu đi chơi nhớ ^^ Còn giờ thì nhắn tin cảm động các thứ với tui đi nhee 🫶",
+            text: "🎉 Chúc mừng sinh nhật bạn nhỏ của tớ nha 🎂 Hôm nào tớ lại đón cậu đi chơi nhớ ^^ Còn giờ thì nhắn tin xúc động các thứ với tui đi nhee 🫶",
             color: "#fff",
             imageUrl: "img/ntn&nth1.jpg",
             imageWidth: 475,
