@@ -143,7 +143,7 @@ function showPopup() {
 
     Swal.fire({
         // title: "Yêu cậu nhìu nhìu 😗",
-        text: "👉👈 Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?",
+        text: "👉👈 Tớ biết cậu yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?",
         color: "#fff",
         input: "textarea",
         inputPlaceholder: "Gửi tâm tư của cậu vào đây nhaa...",
