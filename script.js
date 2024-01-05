@@ -11,19 +11,29 @@ setTimeout(function () {
 function enterPassword() {
     Swal.fire({
         title: "Nhập mật khẩu",
-        html: "<input type='password' id='password' class='passwordInput' placeholder='Mật khẩu trái tim ❤️'>",
+        input: "password",
+        inputPlaceholder: "Mật khẩu trái tim ❤️",
+        // html: "<input type='password' id='password' class='passwordInput' placeholder='Mật khẩu trái tim ❤️'>",
         background: '#fff url("img/iput-bg.jpg")',
         confirmButtonText: "Xác nhận",
         confirmButtonColor: "#3085d6",
-    }).then(function () {
-        checkPassword();
+        customClass: {
+            input: "password"
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            checkPassword(result.value);
+        }
     });
 }
 
-function checkPassword() {
-    var password = document.getElementById("password").value;
+function checkPassword(password) {
+    // var password = document.getElementById("password").value;
     if (password=="561344") {
         firstQuestion();
+        var audio = new Audio("sound/first-date.mp3");
+        audio.volume = 0.2;
+        audio.play();
     } else {
         Swal.fire({
             icon: "error",
@@ -53,9 +63,6 @@ function firstQuestion() {
         confirmButtonColor: "#3085d6",
     }).then(function () {
         $(".content").show(200);
-        var audio = new Audio("sound/first-date.mp3");
-        audio.volume = 0.2;
-        audio.play();
     });
 }
 
@@ -139,10 +146,9 @@ function showPopup() {
         // title: "Yêu cậu nhìu nhìu 😗",
         text: "👉👈 Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?",
         color: "#fff",
-        // html: true,
+        input: "textarea",
+        inputPlaceholder: "Gửi tâm tư của cậu vào đây nhaa...",
         width: 900,
-        // padding: "3em",
-        html: "<p>👉👈 Tớ biết cậu cũng yêu tớ mà, vì sao thế nhỉ, hay có muốn gửi gắm gì đến tớ khum?</p><textarea id='loveMessage' class='messageInput' placeholder='Gửi tâm tư của cậu vào đây nhaa...' rows='4' cols='40' style='resize: none;'>",
         background: '#fff url("img/iput-bg.jpg")',
         backdrop: `
                     rgba(0,0,0,0.45)
@@ -152,36 +158,35 @@ function showPopup() {
                   `,
         showCancelButton: false,
         confirmButtonColor: "#3085d6",
-        // cancelButtonColor: "#d33",
         // confirmButtonColor: "#fe8a71",
-        // cancelButtonColor: "#f6cd61",
         confirmButtonText: "Gửi cho tớ 🫶",
+        customClass: {
+            input: "message"
+        }
     }).then((result) => {
-        sendMessage();
-        if (result.value) {
-        Swal.fire({
-            title: "Yêu cậu nhìu nhìu 😗",
-            text: "🎉 Chúc mừng sinh nhật bạn nhỏ của tớ nha 🎂 Hôm nào tớ lại đón cậu đi chơi nhớ ^^ Còn giờ thì nhắn tin xúc động các thứ với tui đi nhee 🫶",
-            color: "#fff",
-            imageUrl: "img/ntn&nth1.jpg",
-            imageWidth: 475,
-            imageAlt: "Mãi iu ngthh 🫶",
-            // width: 900,
-            background: '#fff url("img/iput-bg.jpg")',
-            confirmButtonText: "Okii lunn 💙",
-            confirmButtonColor: "#fe8a71",
-            // confirmButtonColor: "#83d0c9",
-        }).then(function () {
-            var facebookPageID = 'ngtngh.04';
-            window.open('https://m.me/' + facebookPageID, '_self');
-        });
+        if (result.isConfirmed) {
+            sendMessage(result.value);
+            Swal.fire({
+                title: "Yêu cậu nhìu nhìu 😗",
+                text: "🎉 Chúc mừng sinh nhật bạn nhỏ của tớ nha 🎂 Hôm nào tớ lại đón cậu đi chơi nhớ ^^ Còn giờ thì nhắn tin xúc động các thứ với tui đi nhee 🫶",
+                color: "#fff",
+                imageUrl: "img/ntn&nth1.jpg",
+                imageWidth: 475,
+                imageAlt: "Mãi iu ngthh 🫶",
+                // width: 900,
+                background: '#fff url("img/iput-bg.jpg")',
+                confirmButtonText: "Okii lunn 💙",
+                confirmButtonColor: "#fe8a71",
+                // confirmButtonColor: "#83d0c9",
+            }).then(function () {
+                var facebookPageID = 'ngtngh.04';
+                window.open('https://m.me/' + facebookPageID, '_self');
+            });
         }
     });
 }
 
-function sendMessage() {
-    var answer = document.getElementById("loveMessage").value;
-
+function sendMessage(answer) {
     // Gửi dữ liệu lên server
     fetch('https://formspree.io/f/moqgqjew', {
         method: 'POST',
@@ -197,7 +202,4 @@ function sendMessage() {
     .catch((error) => {
         console.error('Error:', error);
     });
-
-    // Xóa nội dung khung nhập
-    document.getElementById("loveMessage").value = "";
 }
