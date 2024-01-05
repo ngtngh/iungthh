@@ -141,4 +141,15 @@ button {
         font-size: 16px;
         margin: 25px;
     }
+    .message {
+        background-color: #fff;
+        color: black;
+        resize: none;
+        padding: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-family: Segoe UI;
+        font-size: 14px;
+        transition: width 0.5s;
+    }
 }
