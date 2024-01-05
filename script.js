@@ -13,10 +13,10 @@ function enterPassword() {
         title: "Nhập mật khẩu",
         input: "password",
         inputPlaceholder: "Mật khẩu trái tim ❤️",
-        // html: "<input type='password' id='password' class='passwordInput' placeholder='Mật khẩu trái tim ❤️'>",
         background: '#fff url("img/iput-bg.jpg")',
         confirmButtonText: "Xác nhận",
         confirmButtonColor: "#3085d6",
+        allowOutsideClick: false,
         customClass: {
             input: "password"
         }
@@ -28,7 +28,6 @@ function enterPassword() {
 }
 
 function checkPassword(password) {
-    // var password = document.getElementById("password").value;
     if (password=="561344") {
         firstQuestion();
         var audio = new Audio("sound/first-date.mp3");
