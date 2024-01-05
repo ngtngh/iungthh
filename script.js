@@ -10,29 +10,33 @@ setTimeout(function () {
 
 function enterPassword() {
     Swal.fire({
-        title: "Nhập mật khẩu trái tim ❤️",
-        html: "<input type='password' id='password' class='passwordInput' placeholder='Mật khẩu'>",
+        title: "Nhập mật khẩu",
+        html: "<input type='password' id='password' class='passwordInput' placeholder='Mật khẩu trái tim ❤️'>",
         background: '#fff url("img/iput-bg.jpg")',
         confirmButtonText: "Xác nhận",
         confirmButtonColor: "#3085d6",
     }).then(function () {
-        var password = document.getElementById("password").value;
-        if (password=="561344") {
-            firstQuestion();
-        } else {
-            Swal.fire({
-                icon: "error",
-                title: "Mật khẩu chưa chính xác",
-                text: "Vui lòng nhập lại",
-                color: "#fff",
-                background: '#fff url("img/iput-bg.jpg")',
-                confirmButtonText: "Nhập lại",
-                confirmButtonColor: "#3085d6",             
-            }).then(function () {
-                enterPassword();
-            })
-        }
-    })
+        checkPassword();
+    });
+}
+
+function checkPassword() {
+    var password = document.getElementById("password").value;
+    if (password=="561344") {
+        firstQuestion();
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Mật khẩu chưa đúng",
+            text: "Vui lòng nhập lại",
+            color: "#fff",
+            background: '#fff url("img/iput-bg.jpg")',
+            confirmButtonText: "Nhập lại",
+            confirmButtonColor: "#3085d6",             
+        }).then(function () {
+            enterPassword();
+        })
+    }
 }
 
 function firstQuestion() {
@@ -44,7 +48,7 @@ function firstQuestion() {
         imageWidth: 300,
         imageHeight: 300,
         background: '#fff url("img/iput-bg.jpg")',
-        imageAlt: "Custom image",
+        imageAlt: "Cute cat",
         confirmButtonText: "Ogee ^^",
         confirmButtonColor: "#3085d6",
     }).then(function () {
@@ -161,7 +165,7 @@ function showPopup() {
             color: "#fff",
             imageUrl: "img/ntn&nth1.jpg",
             imageWidth: 475,
-            imageAlt: "Custom image",
+            imageAlt: "Mãi iu ngthh 🫶",
             // width: 900,
             background: '#fff url("img/iput-bg.jpg")',
             confirmButtonText: "Okii lunn 💙",
@@ -174,12 +178,6 @@ function showPopup() {
         }
     });
 }
-
-// document.getElementById("loveMessage").addEventListener("keydown", function(event) {
-//     if (event.key === "Enter") {
-//         sendMessage();
-//     }
-// });
 
 function sendMessage() {
     var answer = document.getElementById("loveMessage").value;
